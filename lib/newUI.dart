@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 //import 'package:flutter_demo/edit.dart';
 
+
 class newUI extends StatefulWidget{
+
   @override
   newUIState createState() => new newUIState();
+
 }
 
 class newUIState extends State<newUI>{
@@ -70,9 +73,13 @@ class newUIState extends State<newUI>{
               ),
 //              ListTile(),
               Divider(color: Colors.black,height: 15.0,),
+           ListTile(
+            title: 
+             TextField(decoration: InputDecoration(hintText: "Edit"),),
+             trailing: Icon(Icons.delete),
+           )
 
 
-              TextField(decoration: InputDecoration(hintText: "Edit"),),
 //              Row(
 //                mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //                children: <Widget>[
