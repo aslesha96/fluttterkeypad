@@ -17,7 +17,6 @@ class newUIState extends State<newUI>{
 //  final PageProducts _listProducts = PageProducts();
   static var EnglishVersion = ["A tradition is a belief or behavior passed down within a group or society with symbolic meaning or special significance with origins in the past."];
   static var GoogleVersion = ["ఒక సంప్రదాయం అనేది ఒక సమూహం లేదా సమాజం లోపల ఒక నమ్మకం లేదా ఒక ప్రవర్తన ఒక సింబాలిక్ అర్థం లేదా గతంలో మూలాలు తో ప్రత్యేక ప్రాముఖ్యత తో ఆమోదించింది."];
-  var count = 0;
   @override
   Widget build(BuildContext context) {
 
