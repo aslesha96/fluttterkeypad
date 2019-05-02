@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+//import 'package:flutter_demo/edit.dart';
 
 class newUI extends StatefulWidget{
   @override
@@ -7,130 +9,108 @@ class newUI extends StatefulWidget{
 
 class newUIState extends State<newUI>{
 
+  int _page=0;
+
+//  final PageProducts _listProducts = PageProducts();
+  static var EnglishVersion = ["A tradition is a belief or behavior passed down within a group or society with symbolic meaning or special significance with origins in the past."];
+  static var GoogleVersion = ["ఒక సంప్రదాయం అనేది ఒక సమూహం లేదా సమాజం లోపల ఒక నమ్మకం లేదా ఒక ప్రవర్తన ఒక సింబాలిక్ అర్థం లేదా గతంలో మూలాలు తో ప్రత్యేక ప్రాముఖ్యత తో ఆమోదించింది."];
+  var count = 0;
   @override
   Widget build(BuildContext context) {
-    var Items;
+
     return Scaffold(
+        bottomNavigationBar: CurvedNavigationBar(
+//            initialIndex: 0,
+            items:<Widget>[
+              Icon(Icons.first_page,size: 30,),
+              Icon(Icons.keyboard_arrow_left,size: 30,),
+              Icon(Icons.call_missed,size: 30,),
+              Icon(Icons.edit,size: 30,),
+              Icon(Icons.call_missed_outgoing, size: 30,),
+              Icon(Icons.keyboard_arrow_right,size: 30,),
+              Icon(Icons.last_page,size: 30,),
+            ],
+            color:Colors.white,
+            backgroundColor: Colors.blueGrey[50],
+            animationCurve: Curves.easeOutCubic,
+            animationDuration:Duration(milliseconds: 600),
+            onTap:(index){
+              setState(() {
+                _page=index;
+              });
+            }
+        ),
         appBar: new AppBar(
-          backgroundColor: const Color(0xFF0099a9),
+          backgroundColor: Colors.blue,
+          title: Text("Edit Translation"),
+//          backgroundColor: const Color(0xFF0099a9),
         ),
         body: Container(
+          color: Colors.blueGrey[50],
+//          child: Center(
+//            child: Text(_page.toString(),textScaleFactor: 10.0,),
+//          ),
           child: new Column(
             crossAxisAlignment:   CrossAxisAlignment.start,
             children: <Widget>[
               Text.rich(
                 TextSpan(
                   children: <TextSpan>[
-                    TextSpan(text: ' Common',style: TextStyle(fontSize: 20.0)),
-                    TextSpan(text: ' examples',style: TextStyle(fontSize: 20.0)),
-                    TextSpan(text: ' include',style: TextStyle(fontSize: 20.0)),
-                    TextSpan(text:" holidays",style: TextStyle(fontSize: 20.0))
-                  ],
+                    TextSpan(text: EnglishVersion[count],style: TextStyle(fontSize: 20.0))],
                 ),
               ),
-              ListTile(),
-              Divider(color: Colors.blue,height: 10.0,),
+//              ListTile(),
+              Divider(color: Colors.black,height: 20.0,),
               Text.rich(
                 TextSpan(
                   children: <TextSpan>[
-
-                    TextSpan(text:"సాధారణ",style: TextStyle(fontSize: 20.0,)),
                     TextSpan(text: ' ఉదాహరణల',style: TextStyle(fontSize: 20.0)),
-                    TextSpan(text: ' లో',style: TextStyle(fontSize: 20.0,)),
-                    TextSpan(text: ' సెలవులు',style: TextStyle(fontSize: 20.0,)),
                   ],
                 ),
               ),
-              ListTile(),
-              Divider(color: Colors.blue,height: 10.0,),
-              TextField(decoration: InputDecoration(hintText: "Edit"),),
-              ListTile(),
-              Row(
-                children: <Widget>[
-                  Column(
-                    //ROW 1
-                    children: [
-                      Container(
-//                color: Colors.orange,
-                          margin: EdgeInsets.all(5.0),
-//                  padding: const EdgeInsets.all(3.0),
-                          height: 180.0,
-                          decoration: new BoxDecoration(
-                              border: new Border.all(color: Colors.blueAccent)
-                          ),
-                          child: IconButton(icon: new Icon(Icons.arrow_left),iconSize: 50.0,)
-                      ),
-                      Container(
-//                color: Colors.blue,
-                          margin: EdgeInsets.all(5.0),
-                          decoration: new BoxDecoration(
-                              border: new Border.all(color: Colors.blueAccent)
-                          ),
-                          child: IconButton(icon: new Icon(Icons.arrow_back),iconSize: 50.0,)
-                      ),
-//              Container(
-////                color: Colors.purple,
-//                margin: EdgeInsets.all(25.0),
-//                  child: IconButton(icon: new Icon(Icons.arrow_back),iconSize: 50.0,)
-//              ),
-                    ],
-                  ),
-                  Column(//ROW 2
-                      children: [
-                        Container(
-//                  color: Colors.orange,
-                            margin: EdgeInsets.all(12.0),
-                            decoration: new BoxDecoration(
-                                border: new Border.all(color: Colors.blueAccent)
-                            ),
-                            child: IconButton(icon: new Icon(Icons.arrow_drop_up),iconSize: 50.0,)
-                        ),
-                        Container(
-//                  color: Colors.blue,
-                            margin: EdgeInsets.all(12.0),
-//                margin: EdgeInsets.only(left: 5.0,top: 5.0,bottom: 12.0,right: 5.0),
-                            decoration: new BoxDecoration(
-                                border: new Border.all(color: Colors.blueAccent)
-                            ),
-                            child: IconButton(icon: new Icon(Icons.mode_edit),iconSize: 50.0,)
+//              ListTile(),
+              Divider(color: Colors.black,height: 15.0,),
 
-                        ),
-                        Container(
-//                  color: Colors.purple,
-                            margin: EdgeInsets.all(12.0),
-                            decoration: new BoxDecoration(
-                                border: new Border.all(color: Colors.blueAccent)
-                            ),
-                            child: IconButton(icon: new Icon(Icons.arrow_drop_down),iconSize: 50.0,)
-                        )
-                      ]),
-                  Column(// ROW 3
-                      children: [
-                        Container(
-//                  color: Colors.orange,
-                            margin: EdgeInsets.all(5.0),
-                            height: 180.0,
-                            decoration: new BoxDecoration(
-                                border: new Border.all(color: Colors.blueAccent)
-                            ),
-                            child: IconButton(icon: new Icon(Icons.arrow_right),iconSize: 50.0,)
-                        ),
-                        Container(
-//                  color: Colors.blue,
-                            margin: EdgeInsets.all(5.0),
-                            decoration: new BoxDecoration(
-                                border: new Border.all(color: Colors.blueAccent)
-                            ),
-                            child: IconButton(icon: new Icon(Icons.arrow_forward),iconSize: 50.0,)
-                        ),
-//                Container(
-////                  color: Colors.purple,
-//                  margin: EdgeInsets.all(25.0),
-//                    child: IconButton(icon: new Icon(Icons.arrow_forward),iconSize: 50.0,)
-//                ),
-                      ]),
-                ],
-              )
+
+              TextField(decoration: InputDecoration(hintText: "Edit"),),
+//              Row(
+//                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                children: <Widget>[
+//                  new Flexible(
+//                    child: new TextField(
+//                        decoration: InputDecoration(
+//                            contentPadding: EdgeInsets.all(10)
+//                        )
+//                    ),
+//                  ),
+//                  SizedBox(width: 20.0,),
+//                  new Flexible(
+//                    child: new TextField(
+//                        decoration: InputDecoration(
+//                            contentPadding: EdgeInsets.all(10)
+//                        )
+//                    ),
+//                  ),
+//                  SizedBox(width: 20.0,),
+//                  new Flexible(
+//                    child: new TextField(
+//                        decoration: InputDecoration(
+//                            contentPadding: EdgeInsets.all(10)
+//                        )
+//                    ),
+//                  ),
+//                  SizedBox(width: 20.0,),
+//                  new Flexible(
+//                    child: new TextField(
+//                        decoration: InputDecoration(
+//                            contentPadding: EdgeInsets.all(10)
+//                        )
+//                    ),
+//                  ),
+//                ],
+//              ),
+//              ListTile(),
+
             ],
           ),
         )

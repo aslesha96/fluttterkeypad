@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/newUI.dart';
-
+import 'package:flutter/services.dart';
 void main(){
-//  SystemChrome.setEnabledSystemUIOverlays([]);
+  SystemChrome.setEnabledSystemUIOverlays([]);
   runApp(MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
